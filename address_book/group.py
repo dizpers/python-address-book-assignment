@@ -2,4 +2,6 @@ __all__ = ['Group']
 
 
 class Group(object):
-    pass
+
+    def __init__(self, name):
+        self.name = name
