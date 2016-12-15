@@ -1,3 +1,5 @@
+from group import Group
+
 from person import Person
 
 __all__ = ['AddressBook']
@@ -18,4 +20,6 @@ class AddressBook(object):
     def __contains__(self, item):
         if isinstance(item, Person):
             return item in self.persons
+        if isinstance(item, Group):
+            return item in self.groups
         return False
