@@ -1,3 +1,5 @@
+from person import Person
+
 __all__ = ['AddressBook']
 
 
@@ -8,3 +10,8 @@ class AddressBook(object):
 
     def add_person(self, person):
         self.persons.append(person)
+
+    def __contains__(self, item):
+        if isinstance(item, Person):
+            return item in self.persons
+        return False
