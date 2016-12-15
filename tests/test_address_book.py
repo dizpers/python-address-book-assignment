@@ -17,7 +17,10 @@ class AddressBookTestCase(TestCase):
         self.assertIn(person, address_book)
 
     def test_add_group(self):
-        pass
+        address_book = AddressBook()
+        group = Group('Brozzz')
+        address_book.add_group(group)
+        self.assertIn(group, address_book)
 
     def test_find_person_by_first_name(self):
         pass
