@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from address_book import AddressBook, Person
+from address_book import AddressBook, Person, Group
 
 
 class AddressBookTestCase(TestCase):
