@@ -7,9 +7,13 @@ class AddressBook(object):
 
     def __init__(self):
         self.persons = []
+        self.groups = []
 
     def add_person(self, person):
         self.persons.append(person)
+
+    def add_group(self, group):
+        self.groups.append(group)
 
     def __contains__(self, item):
         if isinstance(item, Person):
