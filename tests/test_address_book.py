@@ -36,6 +36,8 @@ class AddressBookTestCase(TestCase):
             ['Russian Federation, Kemerovo region, Belovo, Kirova street 42, apt. 13'],
             ['+79834771122']
         )
+        address_book.add_person(john_person)
+        address_book.add_person(ivan_person)
         found_person = address_book.find(first_name='Ivan')
         self.assertEqual(found_person, ivan_person)
 

@@ -17,6 +17,15 @@ class AddressBook(object):
     def add_group(self, group):
         self.groups.append(group)
 
+    def find(self, **kwargs):
+        first_name = kwargs.get('first_name')
+        if not first_name:
+            return
+        for person in self.persons:
+            if person.first_name == first_name:
+                return person
+
+
     def __contains__(self, item):
         if isinstance(item, Person):
             return item in self.persons
