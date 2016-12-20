@@ -42,7 +42,23 @@ class AddressBookTestCase(TestCase):
         self.assertEqual(found_person, ivan_person)
 
     def test_find_person_by_last_name(self):
-        pass
+        address_book = AddressBook()
+        john_person = Person(
+            'John',
+            'Doe',
+            ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42'],
+            ['+79834772053']
+        )
+        ivan_person = Person(
+            'Ivan',
+            'Sidorov',
+            ['Russian Federation, Kemerovo region, Belovo, Kirova street 42, apt. 13'],
+            ['+79834771122']
+        )
+        address_book.add_person(john_person)
+        address_book.add_person(ivan_person)
+        found_person = address_book.find(last_name='Sidorov')
+        self.assertEqual(found_person, ivan_person)
 
     def test_find_person_by_email(self):
         pass
