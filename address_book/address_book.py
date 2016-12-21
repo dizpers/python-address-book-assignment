@@ -29,7 +29,7 @@ class AddressBook(object):
             if person.last_name == last_name:
                 return person
             # TODO: person.emails?
-            if email in person.email:
+            if email in person.emails:
                 return person
 
 
