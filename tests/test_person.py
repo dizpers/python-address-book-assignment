@@ -30,13 +30,13 @@ class PersonTestCase(TestCase):
         person = Person(
             'John',
             'Doe',
+            ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42'],
             copy(basic_phone),
-            ['+79834772053'],
             ['john@gmail.com']
         )
-        person.add_phone('+79234478810')
+        person.add_phone_number('+79234478810')
         self.assertEqual(
-            person.addresses,
+            person.phone_numbers,
             basic_phone + ['+79234478810']
         )
 

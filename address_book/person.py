@@ -13,3 +13,6 @@ class Person(object):
 
     def add_address(self, address):
         self.addresses.append(address)
+
+    def add_phone_number(self, phone_number):
+        self.phone_numbers.append(phone_number)
