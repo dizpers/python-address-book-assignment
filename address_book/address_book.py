@@ -20,12 +20,16 @@ class AddressBook(object):
     def find(self, **kwargs):
         first_name = kwargs.get('first_name')
         last_name = kwargs.get('last_name')
-        if not (first_name or last_name):
+        email = kwargs.get('email')
+        if not (first_name or last_name or email):
             return
         for person in self.persons:
             if person.first_name == first_name:
                 return person
             if person.last_name == last_name:
+                return person
+            # TODO: person.emails?
+            if email in person.email:
                 return person
 
 
