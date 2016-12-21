@@ -9,6 +9,7 @@ class Person(object):
         self.addresses = addresses
         self.phone_numbers = phone_numbers
         self.emails = emails
+        self.groups = []
 
     def add_address(self, address):
         self.addresses.append(address)
@@ -18,3 +19,6 @@ class Person(object):
 
     def add_email(self, email):
         self.emails.append(email)
+
+    def add_to_group(self, group):
+        self.groups.append(group)
