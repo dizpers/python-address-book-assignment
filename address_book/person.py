@@ -8,7 +8,6 @@ class Person(object):
         self.last_name = last_name
         self.addresses = addresses
         self.phone_numbers = phone_numbers
-        #TODO: have some method to add more emails -> we have to store list of mails
         self.emails = emails
 
     def add_address(self, address):
