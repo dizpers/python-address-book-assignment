@@ -26,7 +26,19 @@ class PersonTestCase(TestCase):
         )
 
     def test_add_phone(self):
-        pass
+        basic_phone = ['+79237778492']
+        person = Person(
+            'John',
+            'Doe',
+            copy(basic_phone),
+            ['+79834772053'],
+            ['john@gmail.com']
+        )
+        person.add_phone('+79234478810')
+        self.assertEqual(
+            person.addresses,
+            basic_phone + ['+79234478810']
+        )
 
     def test_add_email(self):
         pass
