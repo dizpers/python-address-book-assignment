@@ -2,13 +2,28 @@ from copy import copy
 
 from unittest import TestCase
 
-from address_book import Person
+from address_book import Person, Group
 
 
 class PersonTestCase(TestCase):
 
     def test_get_groups(self):
-        pass
+        person = Person(
+            'John',
+            'Doe',
+            ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42'],
+            ['+79834772053'],
+            ['john@gmail.com']
+        )
+        self.assertFalse(person.groups)
+        group_friends = Group('friends')
+        group_family = Group('family')
+        person.add_to_group(group_friends)
+        person.add_to_group(group_family)
+        self.assertEqual(
+            person.groups,
+            [group_friends, group_family]
+        )
 
     def test_add_address(self):
         basic_address = ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42']
