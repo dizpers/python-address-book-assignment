@@ -9,3 +9,4 @@ class Group(object):
 
     def add_person(self, person):
         self.persons.append(person)
+        person.add_to_group(self)

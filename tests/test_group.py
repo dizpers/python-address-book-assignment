@@ -5,7 +5,7 @@ from address_book import Person, Group
 
 class GroupTestCase(TestCase):
 
-    def get_persons(self):
+    def test_get_persons(self):
         john_person = Person(
             'John',
             'Doe',
@@ -28,3 +28,5 @@ class GroupTestCase(TestCase):
             group.persons,
             [ivan_person, john_person]
         )
+        self.assertIn(group, ivan_person.groups)
+        self.assertIn(group, john_person.groups)
