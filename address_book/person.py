@@ -16,3 +16,6 @@ class Person(object):
 
     def add_phone_number(self, phone_number):
         self.phone_numbers.append(phone_number)
+
+    def add_email(self, email):
+        self.emails.append(email)

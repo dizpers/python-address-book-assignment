@@ -52,5 +52,5 @@ class PersonTestCase(TestCase):
         person.add_email('new@mail.net')
         self.assertEqual(
             person.emails,
-            basic_phone + ['new@mail.net']
+            basic_email + ['new@mail.net']
         )
