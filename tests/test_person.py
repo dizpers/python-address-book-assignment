@@ -41,4 +41,16 @@ class PersonTestCase(TestCase):
         )
 
     def test_add_email(self):
-        pass
+        basic_email = ['john@gmail.com']
+        person = Person(
+            'John',
+            'Doe',
+            ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42'],
+            ['+79834772053'],
+            copy(basic_email)
+        )
+        person.add_email('new@mail.net')
+        self.assertEqual(
+            person.emails,
+            basic_phone + ['new@mail.net']
+        )
