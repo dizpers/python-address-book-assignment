@@ -10,3 +10,6 @@ class Person(object):
         self.phone_numbers = phone_numbers
         #TODO: have some method to add more emails -> we have to store list of mails
         self.emails = emails
+
+    def add_address(self, address):
+        self.addresses.append(address)

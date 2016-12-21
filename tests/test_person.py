@@ -1,3 +1,5 @@
+from copy import copy
+
 from unittest import TestCase
 
 from address_book import Person
@@ -9,11 +11,11 @@ class PersonTestCase(TestCase):
         pass
 
     def test_add_address(self):
-        basic_address = ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42'],
+        basic_address = ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42']
         person = Person(
             'John',
             'Doe',
-            basic_address,
+            copy(basic_address),
             ['+79834772053'],
             ['john@gmail.com']
         )
