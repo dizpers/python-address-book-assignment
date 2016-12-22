@@ -3,7 +3,7 @@ __all__ = ['Person']
 
 class Person(object):
 
-    searchable_fields = ['first_name', 'last_name', 'email']
+    searchable_fields = ['first_name', 'last_name', 'email', 'emails']
 
     def __init__(self, first_name, last_name, addresses, phone_numbers, emails):
         self.first_name = first_name
@@ -39,7 +39,7 @@ class Person(object):
             self_value = getattr(self, field)
 
             if type(value) == list:
-                matched = set(self_value).issuperset(value)
+                matched = set(self_value).issuperset(set(value))
             else:
                 matched = self_value == value
 

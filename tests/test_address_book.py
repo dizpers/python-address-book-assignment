@@ -106,3 +106,27 @@ class AddressBookTestCase(TestCase):
         address_book.add_person(ivan_person)
         found_person = address_book.find(email='ivan@kgb.ru')
         self.assertEqual(found_person, ivan_person)
+
+    def test_find_person_by_set_of_emails(self):
+        address_book = AddressBook()
+        john_person = Person(
+            'John',
+            'Doe',
+            ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42'],
+            ['+79834772053'],
+            ['john@gmail.com']
+        )
+        ivan_person = Person(
+            'Ivan',
+            'Sidorov',
+            ['Russian Federation, Kemerovo region, Belovo, Kirova street 42, apt. 13'],
+            ['+79834771122'],
+            ['ivan@kgb.ru']
+        )
+        address_book.add_person(john_person)
+        address_book.add_person(ivan_person)
+        found_person = address_book.find(emails=['ivan@kgb.ru', 'sn0uden@us.gov'])
+        self.assertIsNone(found_person)
+        ivan_person.add_email('sn0uden@us.gov')
+        found_person = address_book.find(emails=['ivan@kgb.ru', 'sn0uden@us.gov'])
+        self.assertEqual(found_person, ivan_person)
