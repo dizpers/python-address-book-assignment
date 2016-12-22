@@ -7,6 +7,7 @@ class Group(object):
         self.name = name
         self.persons = []
 
-    def add_person(self, person):
+    def add_person(self, person, update_person=True):
         self.persons.append(person)
-        person.add_to_group(self)
+        if update_person:
+            person.add_to_group(self, update_group=False)

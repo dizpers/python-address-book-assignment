@@ -24,6 +24,8 @@ class PersonTestCase(TestCase):
             person.groups,
             [group_friends, group_family]
         )
+        self.assertIn(person, group_friends.persons)
+        self.assertIn(person, group_family.persons)
 
     def test_add_address(self):
         basic_address = ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42']

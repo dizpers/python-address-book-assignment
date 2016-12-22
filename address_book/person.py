@@ -20,5 +20,7 @@ class Person(object):
     def add_email(self, email):
         self.emails.append(email)
 
-    def add_to_group(self, group):
+    def add_to_group(self, group, update_group=True):
         self.groups.append(group)
+        if update_group:
+            group.add_person(self, update_person=False)

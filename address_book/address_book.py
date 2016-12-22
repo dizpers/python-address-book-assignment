@@ -32,7 +32,6 @@ class AddressBook(object):
             if email in person.emails:
                 return person
 
-
     def __contains__(self, item):
         if isinstance(item, Person):
             return item in self.persons
