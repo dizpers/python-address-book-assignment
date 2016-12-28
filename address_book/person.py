@@ -39,7 +39,17 @@ class Person(object):
             self_value = getattr(self, field)
 
             if type(value) == list:
-                matched = set(self_value).issuperset(set(value))
+                if field == 'emails':
+                    matched = True
+                    for search_email in value:
+                        for actual_email in self_value:
+                            if actual_email.startswith(search_email):
+                                break
+                        else:
+                            matched = False
+                            break
+                else:
+                    matched = set(self_value).issuperset(set(value))
             else:
                 matched = self_value == value
 
