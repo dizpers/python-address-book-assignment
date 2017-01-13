@@ -26,7 +26,7 @@ address_book = AddressBook()
 
 # Entities
 
-There are 3 entities used in this library:
+There are 3 entities (models) used in this library:
 
 1. address book;
 2. person;
@@ -42,6 +42,89 @@ them.
 # API
 
 ## AddressBook
+
+### Create a new address book
+
+To create a new address book, just use the constructor of `AddressBook` class like the following:
+
+```python
+from address_book import AddressBook
+
+addres_book = AddressBook()
+```
+
+### Add the person to the address book
+
+To add the person (instance of `Person` class) to the address book (instance of `AddressBook` class) you should use
+`add_person` method of `AddressBook` class like the following:
+
+```python
+from address_book import AddressBook, Person
+
+# Create the new address book
+address_book = AddressBook()
+
+# Create the new person
+person = Person(
+    'John',
+    'Doe',
+    ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42'],
+    ['+79834772053'],
+    ['john@gmail.com']
+)
+
+# Add the person created above to the address book
+address_book.add_person(person)
+```
+
+### Add the group to the address book
+
+To add the group (instance of `Group` class) to the addres book (instance of `AddressBook` class) you should use
+`add_group` method of `AddressBook` class like in the example below:
+
+```python
+from address_book import AddressBook, Group
+
+# Create the address book
+address_book = AddressBook()
+
+# Create the group
+group = Group('employers')
+
+# Add that just created group to the address book:
+address_book.add_group(group)
+```
+
+### Find the person in the address book
+
+All searches of persons (instances of `Person` class) are performed by the call of the `find` method in the instance of
+`AddressBook` class. Please, check the example below to see how to use it:
+
+```python
+from address_book import AddressBook, Person
+
+# First, let's create the address book
+address_book = AddressBook()
+
+# Then let's add some people to it
+address_book.add_person(Person(
+    'John',
+    'Doe',
+    ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42'],
+    ['+79834772053'],
+    ['john@gmail.com']
+))
+address_book.add_person(Person(
+    'Ivan',
+    'Doe',
+    ['Russian Federation, Kemerovo region, Kemerovo, Kirova street 23, apt. 42'],
+    ['+79834772053'],
+    ['john@gmail.com']
+))
+
+# Let's find person with first name `Ivan`
+ivan_person = address_book.find(first_name='Ivan')
+```
 
 ## Person
 
