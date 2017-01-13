@@ -3,6 +3,7 @@
 Asessment for applying to GingerPayments ([link to the original description](https://github.com/gingerpayments/hiring/blob/master/coding-assignments/python-address-book-assignment/python-address-book-assignment.rst)).
 
 Please, feel free to checkout these 3 videos, describing the process of development (no sound, just sreen capturing):
+
 1. https://youtu.be/JfcehW7wuU4
 2. https://youtu.be/1NTcvhRgMJ8
 3. https://youtu.be/KrZh-SrfEG8
@@ -25,6 +26,7 @@ address_book = AddressBook()
 # Entities
 
 There are 3 entities used in this library:
+
 1. address book;
 2. person;
 3. group.
