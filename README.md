@@ -143,7 +143,73 @@ Find person by email address (can supply any substring, ie. "comp" should work a
 email address in the address book) - discuss how you would implement this without coding the solution.
 ```
 
-To be done
+The easiest way to perform such check is to use `in` clause like this:
+
+```python
+assert 'comp' in 'alexander@company.com'
+```
+
+Another way is to use regular expressions. It could be done like this:
+
+```python
+import re
+
+assert re.search(r'comp', 'alexander@company.com')
+assert re.search(r'^alex.*com$', 'alexander@company.com')
+assert re.search(r'^alex.*ru$', 'alexander@company.com') is None
+```
+
+Both solutions can solve the problem. In the meantime, using regexp is much more powerful and require understanding of
+regular expressions syntax (PCRE). So, I think using the first option is the best way. We can (and I think should) move
+to regular expressions solutions in future to give more flexibility in searching things.
+
+So, now we agreed to use Python's `in` clause to perform the check described in the question. The next step is to insert
+that check in proper place. Search performed by [`find` method](address_book/address_book.py#L20) of `AddressBook`
+class. The purpose of that method is to build the search query and iterate through all persons together with calling
+`match` method on each person with search query as an argument. [`match` method](address_book/person.py#L30) of `Person`
+class parse the search query and check if current instance of `Person` class match it or not. For emails checking we
+have the [special block](address_book/person.py#L42-L50). So, we should insert our check at line 46. The match method
+will look like this (I've added regexp option in comments too):
+
+```python
+def match(self, **match_fields):
+    matches = {}
+
+    for field, value in match_fields.iteritems():
+        #TODO: sounds like the hack :3
+        if field == 'email':
+            field = 'emails'
+            value = [value]
+
+        self_value = getattr(self, field)
+
+        if type(value) == list:
+            if field == 'emails':
+                matched = True
+                for search_email in value:
+                    for actual_email in self_value:
+#                       Original line:
+#                        if actual_email.startswith(search_email):
+                        if search_email in actual_email:
+#                       Regexp option:
+#                        import re
+#                        if re.search(search_email, actual_email):
+                            break
+                    else:
+                        matched = False
+                        break
+            else:
+                matched = set(self_value).issuperset(set(value))
+        else:
+            matched = self_value == value
+
+        matches[field] = matched
+
+    if all(matches.values()):
+        return True
+
+    return False
+```
 
 # Test
 
@@ -162,4 +228,5 @@ There's still the big room for improvements. Some ideas are:
 3. let the `find` method of `AddressBook` class to return a list of results, not just first match;
 4. implement regexp matching for `find` method of `AddressBook` class;
 5. check the necessity and ways of reducing memory usage (we're duplicating data for now);
-6. add "setup file" to make this package distributable.
+6. add "setup file" to make this package distributable;
+7. make `Person` instances matching modular by encapsulation related stuff for each attribute type in, for example, classes.
