@@ -128,7 +128,11 @@ ivan_person = address_book.find(first_name='Ivan')
 
 ## Person
 
+To be done
+
 ## Group
+
+To be done
 
 # Design question
 
@@ -139,7 +143,7 @@ Find person by email address (can supply any substring, ie. "comp" should work a
 email address in the address book) - discuss how you would implement this without coding the solution.
 ```
 
-
+To be done
 
 # Test
 
