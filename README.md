@@ -1,4 +1,4 @@
-# python-address-book-assignment
+# python-address-book-assignment (docs WIP)
 
 Asessment for applying to GingerPayments ([link to the original description](https://github.com/gingerpayments/hiring/blob/master/coding-assignments/python-address-book-assignment/python-address-book-assignment.rst)).
 If you can't access that link, please visit [my gist with saved description](https://gist.github.com/dizpers/e427278fe10b9a2c73caa8da2261a786).
