@@ -1,6 +1,7 @@
 # python-address-book-assignment
 
 Asessment for applying to GingerPayments ([link to the original description](https://github.com/gingerpayments/hiring/blob/master/coding-assignments/python-address-book-assignment/python-address-book-assignment.rst)).
+If you can't access that link, please visit [my gist with saved description](https://gist.github.com/dizpers/e427278fe10b9a2c73caa8da2261a786).
 
 Please, feel free to checkout these 3 videos, describing the process of development (no sound, just sreen capturing):
 
