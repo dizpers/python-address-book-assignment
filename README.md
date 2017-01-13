@@ -148,3 +148,14 @@ To run whole test suite just use this command:
 ```
 nosetests
 ```
+
+# TODO
+
+There's still the big room for improvements. Some ideas are:
+
+1. loading and saving the address book in some kind of db;
+2. let the `find` method of `AddressBook` class to search for both persons and groups;
+3. let the `find` method of `AddressBook` class to return a list of results, not just first match;
+4. implement regexp matching for `find` method of `AddressBook` class;
+5. check the necessity and ways of reducing memory usage (we're duplicating data for now);
+6. add "setup file" to make this package distributable.
